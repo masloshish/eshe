@@ -11,46 +11,41 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 16px;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
 
-      /* ПАТТЕРН + МЯГКИЙ ФОН */
-      background-color: #f7f8ff;
-      background-image:
-        url("gnomi.png"),
-        linear-gradient(135deg, #f6f8ff, #ffffff);
+  background-color: #f7f8ff;
 
-      /* порядок важен: первая картинка — паттерн, вторая — градиент */
-      background-repeat:
-        repeat,
-        no-repeat;
+  /* ДВА СЛОЯ:
+     1) маленькая картинка 30px
+     2) прозрачная "плитка" 430px (шаг) */
+  background-image:
+    url("gnomi.png"),
+    linear-gradient(transparent, transparent),
+    linear-gradient(135deg, #f6f8ff, #ffffff);
 
-      /* "воздух": шаг повторения больше, чем размер гнома */
-      background-size:
-        500px 500px,   /* расстояние между повторениями */
-        cover;
+  background-repeat:
+    no-repeat,
+    repeat,
+    no-repeat;
 
-      /* чтобы паттерн не прилипал к углу можно слегка сместить */
-      background-position:
-        20px 20px,
-        center;
+  /* 30px сама картинка, 430px шаг */
+  background-size:
+    30px 30px,
+    430px 430px,
+    cover;
 
-      /* чтобы паттерн не был слишком ярким, можно приглушить через overlay ниже */
-    }
-
-    /* лёгкая белая вуаль поверх паттерна (делает премиальнее) */
-    .veil {
-      position: fixed;
-      inset: 0;
-      background: rgba(255,255,255,0.55);
-      pointer-events: none;
-      z-index: 0;
-    }
+  /* ставим картинку в центр каждой плитки */
+  background-position:
+    20px 20px,
+    0 0,
+    center;
+}
 
     .container {
       position: relative;
