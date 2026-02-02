@@ -15,19 +15,20 @@
       padding: 0;
     }
 
-  body {
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
 
-  font-family: 'Playfair Display', serif;
-  position: relative;
-  overflow-x: hidden;
+  background-image: url("gnomi.png");
+  background-repeat: repeat;
 
-  background: linear-gradient(135deg, #f6f8ff, #ffffff);
+  /* размер гнома 30px */
+  background-size: auto 30px;
+
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* паттерн отдельным блоком */
