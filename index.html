@@ -9,9 +9,10 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
+body {
   min-height: 100vh;
+  margin: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,31 +21,7 @@
   font-family: 'Playfair Display', serif;
 
   background-color: #f7f8ff;
-
-  /* ДВА СЛОЯ:
-     1) маленькая картинка 30px
-     2) прозрачная "плитка" 430px (шаг) */
-  background-image:
-    url("gnomi.png"),
-    linear-gradient(transparent, transparent),
-    linear-gradient(135deg, #f6f8ff, #ffffff);
-
-  background-repeat:
-    no-repeat,
-    repeat,
-    no-repeat;
-
-  /* 30px сама картинка, 430px шаг */
-  background-size:
-    30px 30px,
-    430px 430px,
-    cover;
-
-  /* ставим картинку в центр каждой плитки */
-  background-position:
-    20px 20px,
-    0 0,
-    center;
+  position: relative;
 }
 
     .container {
