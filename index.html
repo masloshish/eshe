@@ -9,28 +9,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body::before {
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  background: #ffffff;
+}
+
+/* ПАТТЕРН ПОВЕРХ ВСЕГО — точно увидишь */
+body::before {
   content: "";
   position: fixed;
   inset: 0;
-
-  background-image: url("gnomi.png");
-  background-repeat: repeat;
-
-  /* размер гнома 30px */
-  background-size: auto 30px;
-
-  opacity: 0.22;
+  background: url("gnomi.png") repeat;
+  background-size: 30px 30px;
+  opacity: 0.6;          /* специально ярко для проверки */
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;         /* поверх всего */
 }
 
+.container {
+  position: relative;
+  z-index: 10000;        /* контент ещё выше */
+  padding: 20px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+}
 /* паттерн отдельным блоком */
 body::before {
   content: "";
