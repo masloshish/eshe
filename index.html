@@ -1,1 +1,105 @@
-нужно больше воздуха между картинками паттерна и весь текст съехал в лево вверх, должен быть посередине, прикрепляю мой код, исправь и пришли корректный код: <!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <title>Еще</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Элегантный шрифт --> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet"> <style> * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Playfair Display', serif; } body { height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center; text-align: center; font-family: sans-serif; background-image: linear-gradient(135deg, #f6f8ff, #ffffff), url("gnomi.png"); background-repeat: no-repeat, repeat; background-size: cover, auto 40px; background-position: center, 0 0; } h1 { font-size: 2.0rem; margin-bottom: 30px; color: #222; letter-spacing: 1px; font-weight: 300; } .flower { width: 100%; max-width: 350px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); transition: transform 0.4s ease; } .flower:hover { transform: scale(1.05); } </style> </head> <body> <div class="container"> <img class="logo" src="lalka.png" alt="Логотип"> <h1>Мы заебись крутые ребятки делаем стоп-моушен и моушен невер донт стоп</h1> <img class="flower" src="stopmo.png" alt="Цветок"> </div> </body> </html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Еще</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 40px 16px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+
+      background: linear-gradient(135deg, #f6f8ff, #ffffff);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ПАТТЕРН: гном 30px, шаг 400px */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.22;
+
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><image href='gnomi.png' x='185' y='185' width='30' height='30'/></svg>");
+      background-repeat: repeat;
+    }
+
+    /* лёгкая вуаль, чтобы паттерн выглядел мягче */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.55);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+
+      width: min(720px, 100%);
+      padding: 26px 22px;
+
+      background: rgba(255,255,255,0.78);
+      border-radius: 26px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+      backdrop-filter: blur(6px);
+    }
+
+    .logo {
+      width: clamp(80px, 12vw, 130px);
+      height: auto;
+      display: block;
+      margin: 0 auto 16px;
+    }
+
+    h1 {
+      font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+      line-height: 1.35;
+      font-weight: 300;
+      color: #222;
+      margin: 0 auto 18px;
+      max-width: 52ch;
+    }
+
+    .flower {
+      width: min(520px, 100%);
+      height: auto;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      transition: transform 0.35s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .flower:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img class="logo" src="lalka.png" alt="Логотип">
+    <h1>Мы заебись крутые ребятки делаем стоп-моушен и моушен невер донт стоп</h1>
+    <img class="flower" src="stopmo.png" alt="Цветок">
+  </div>
+</body>
+</html>
