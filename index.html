@@ -26,34 +26,19 @@
       position: relative;
       overflow-x: hidden;
 
-      /* базовый мягкий фон */
       background: linear-gradient(135deg, #f6f8ff, #ffffff);
 
-    /* ПАТТЕРН С "ВОЗДУХОМ" */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
 
-      /* одна картинка, повторяем */
       background-image: url("gnomi.png");
       background-repeat: repeat;
 
-      /*
-        ШАГ ПОВТОРА (воздух между гномами):
-        180px 180px = расстояние между центрами тайлов.
-        Можешь сделать больше: 220px 220px, если нужно еще реже.
-      */
-      background-size: auto 40px;
+      background-size: auto 30px;
 
-      /*
-        ВАЖНО: чтобы картинка не растягивалась по ширине —
-        она будет рисоваться в своем натуральном размере внутри тайла.
-        Если твой гном слишком большой, сделай сам файл меньше
-        или скажи — я покажу, как уменьшить через CSS (альтернативой).
-      */
-
-      opacity: 0.22;          /* видимость паттерна */
+      opacity: 0.22;  
       pointer-events: none;
       z-index: 0;
     }
