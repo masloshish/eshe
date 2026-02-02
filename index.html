@@ -2,59 +2,52 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Еще</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Еще</title>
 
-  <!-- Элегантный шрифт -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 40px 16px;
       text-align: center;
-
       font-family: 'Playfair Display', serif;
-      position: relative;
-      overflow-x: hidden;
 
-      /* базовый мягкий фон */
-      background: linear-gradient(135deg, #f6f8ff, #ffffff);
+      /* ПАТТЕРН + МЯГКИЙ ФОН */
+      background-color: #f7f8ff;
+      background-image:
+        url("gnomi.png"),
+        linear-gradient(135deg, #f6f8ff, #ffffff);
+
+      /* порядок важен: первая картинка — паттерн, вторая — градиент */
+      background-repeat:
+        repeat,
+        no-repeat;
+
+      /* "воздух": шаг повторения больше, чем размер гнома */
+      background-size:
+        220px 220px,   /* расстояние между повторениями */
+        cover;
+
+      /* чтобы паттерн не прилипал к углу можно слегка сместить */
+      background-position:
+        20px 20px,
+        center;
+
+      /* чтобы паттерн не был слишком ярким, можно приглушить через overlay ниже */
     }
 
-    /* ПАТТЕРН С "ВОЗДУХОМ" */
-    body::before {
-      content: "";
+    /* лёгкая белая вуаль поверх паттерна (делает премиальнее) */
+    .veil {
       position: fixed;
       inset: 0;
-
-      /* одна картинка, повторяем */
-      background-image: url("gnomi.png");
-      background-repeat: repeat;
-
-      /*
-        ШАГ ПОВТОРА (воздух между гномами):
-        180px 180px = расстояние между центрами тайлов.
-        Можешь сделать больше: 220px 220px, если нужно еще реже.
-      */
-      background-size: 180px 180px;
-
-      /*
-        ВАЖНО: чтобы картинка не растягивалась по ширине —
-        она будет рисоваться в своем натуральном размере внутри тайла.
-        Если твой гном слишком большой, сделай сам файл меньше
-        или скажи — я покажу, как уменьшить через CSS (альтернативой).
-      */
-
-      opacity: 0.22;          /* видимость паттерна */
+      background: rgba(255,255,255,0.55);
       pointer-events: none;
       z-index: 0;
     }
@@ -62,51 +55,50 @@
     .container {
       position: relative;
       z-index: 1;
+      width: min(720px, 100%);
+      padding: 26px 22px;
 
-      max-width: 620px;
-      padding: 28px 22px;
-
-      /* чтобы текст читался на паттерне */
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255,255,255,0.78);
+      border-radius: 26px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.10);
       backdrop-filter: blur(6px);
-      border-radius: 24px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
     }
 
     .logo {
-      width: 140px;
+      width: clamp(90px, 14vw, 150px); /* меньше и адаптивно */
       height: auto;
-      margin: 0 auto 18px;
       display: block;
+      margin: 0 auto 16px;
     }
 
     h1 {
-      font-size: clamp(1.2rem, 3.2vw, 2rem);
-      margin: 0 0 22px;
-      color: #222;
-      letter-spacing: 0.5px;
+      font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+      line-height: 1.35;
       font-weight: 300;
-      line-height: 1.25;
+      color: #222;
+      margin: 0 auto 18px;
+      max-width: 52ch;
     }
 
     .flower {
-      width: 100%;
-      max-width: 380px;
+      width: min(520px, 100%);
       height: auto;
-      border-radius: 20px;
+      border-radius: 18px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      transition: transform 0.4s ease;
+      transition: transform 0.35s ease;
       display: block;
       margin: 0 auto;
     }
 
     .flower:hover {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
   </style>
 </head>
 
 <body>
+  <div class="veil"></div>
+
   <div class="container">
     <img class="logo" src="lalka.png" alt="Логотип">
     <h1>Мы заебись крутые ребятки делаем стоп-моушен и моушен невер донт стоп</h1>
