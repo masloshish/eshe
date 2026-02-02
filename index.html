@@ -20,25 +20,29 @@ body {
   height: 100vh;
   margin: 0;
 
-  display: — flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
   font-family: sans-serif;
 
-  background: url("gnomi.png") repeat;
-  background-size: auto 50px;
-}
-    .container {
-        max-width: 600px;
-        padding: 20px;
-    }
+  background-image:
+    linear-gradient(135deg, #f6f8ff, #ffffff),
+    url("gnomi.png");
 
-    .logo {
-        width: 140px;
-        margin-bottom: 20px;
-    }
+  background-repeat:
+    no-repeat,
+    repeat;
+
+  background-size:
+    cover,
+    auto 40px;
+
+  background-position:
+    center,
+    0 0;
+}
 
     h1 {
         font-size: 2.0rem;
