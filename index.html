@@ -9,20 +9,22 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  min-height: 100vh;
-  margin: 0;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 16px;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>\
+  <image href='gnomi.png' x='185' y='185' width='30' height='30'/>\
+</svg>");
 
-  background-color: #f7f8ff;
-  position: relative;
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
 }
+
 
     .container {
       position: relative;
