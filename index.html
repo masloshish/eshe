@@ -10,34 +10,40 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 16px;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 16px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
 
-  background-color: #f7f8ff;
+      /* ПАТТЕРН + МЯГКИЙ ФОН */
+      background-color: #f7f8ff;
+      background-image:
+        url("gnomi.png"),
+        linear-gradient(135deg, #f6f8ff, #ffffff);
 
-  background-image:
-    url("gnomi.png"),
-    linear-gradient(135deg, #f6f8ff, #ffffff);
+      /* порядок важен: первая картинка — паттерн, вторая — градиент */
+      background-repeat:
+        repeat,
+        no-repeat;
 
-  background-repeat:
-    repeat,
-    no-repeat;
+      /* "воздух": шаг повторения больше, чем размер гнома */
+      background-size:
+        220px 220px,   /* расстояние между повторениями */
+        cover;
 
-  /* ШАГ ПОВТОРА = РАССТОЯНИЕ */
-  background-size:
-    320px 320px,   /* расстояние между гномами */
-    cover;
+      /* чтобы паттерн не прилипал к углу можно слегка сместить */
+      background-position:
+        20px 20px,
+        center;
 
-  background-position:
-    0 0,
-    center;
-}
+      /* чтобы паттерн не был слишком ярким, можно приглушить через overlay ниже */
+    }
+
+    /* лёгкая белая вуаль поверх паттерна (делает премиальнее) */
     .veil {
       position: fixed;
       inset: 0;
